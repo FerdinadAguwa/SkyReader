@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(137, 157, 177);
+}
+#tableWidth{
+    width: 270px;
+}
+.forecastStyle {
+    display: flex;
+    flex-direction: row;
+
+}
+.card{
+ width: 150px;
+}
