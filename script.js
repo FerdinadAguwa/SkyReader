@@ -45,15 +45,15 @@ $.ajax({
        
         uvIndex.attr(style="background-color","green");
 
-        if (uvIndex > 11) {
-            uvIndex.style.backgroundcolor = "purple";
-        } else if (uvIndex >= 8) {
-            uvIndex.style.backgroundcolor = "yellow";
-        } else if (uvIndex >= 6) {
-            uvIndex.style.backgroundcolor = "orange";
+        if (response.value > 11) {
+            uvIndex.attr(style="background-color","purple");
+        } else if ($(response.value > 8)) {
+            uvIndex.attr(style="background-color","yellow");
+        } else if ($(response.value > 6)) {
+            uvIndex.attr(style="background-color","red");
             
-        } else if (uvIndex >= 3) {
-            uvIndex.style.backgroundcolor = "yellow";
+        } else if (response.value > 0) {
+            uvIndex.attr(style="background-color","blue");
          
         }
        console.log(response.value)
