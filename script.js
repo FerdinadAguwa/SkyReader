@@ -47,14 +47,14 @@ $.ajax({
 
         if (uvIndex > 11) {
             uvIndex.style.backgroundcolor = "purple";
-        } else if (currUVIndex > 8) {
+        } else if (uvIndex > 8) {
             uviSeverity = "red";
-        } else if (currUVIndex > 6) {
-            uviSeverity = "orange";
-            text_color = "black"
-        } else if (currUVIndex > 3) {
-            uviSeverity = "yellow";
-            text_color = "black"
+        } else if (uvIndex > 6) {
+            uvIndex.style.backgroundcolor = "orange";
+            
+        } else if (uvIndex > 3) {
+            uvIndex.style.backgroundcolor = "yellow";
+         
         }
        
     
