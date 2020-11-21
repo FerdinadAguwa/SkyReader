@@ -41,22 +41,23 @@ $.ajax({
         url:queryUvi,
         method: "GET"
     }).then(function(response){
-        uvIndex.text("Uvi: "+response.value);
-       
+        uvCurrent = (response.value);
+        uvIndex.text("Uvi: "+ uvCurrent);
+
         uvIndex.attr(style="background-color","green");
 
-        if (response.value > 11) {
+        if (uvCurrent >11) {
             uvIndex.attr(style="background-color","purple");
-        } else if ($(response.value > 8)) {
+        } else if (uvCurrent > 8) {
             uvIndex.attr(style="background-color","yellow");
-        } else if ($(response.value > 6)) {
+        } else if (uvCurrent > 6) {
             uvIndex.attr(style="background-color","red");
             
-        } else if (response.value > 0) {
+        } else if (uvCurrent > 0) {
             uvIndex.attr(style="background-color","blue");
          
         }
-       console.log(response.value)
+       console.log(uvCurrent)
     
     });
 var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
