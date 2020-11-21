@@ -17,12 +17,17 @@ $.ajax({
     url:queryURL,
     method: "GET"
 }).then(function(response) {
-    var icon = (response.weather.icon);
+    let currTime = new Date(response.dt*1000);
+    currTime.getMonth()+1/currTime.getDate()/currTime.getFullYear();
+    console.log(currTime)
+
+
+    var icon = (response.weather[0].icon);
     console.log(icon);
-    temp.append("Temperature: "+response.main.temp+" F");
-    hum.append("Humidity: "+response.main.humidity+"%");
-    windspeed.append("Windspeed: "+response.wind.speed);
-    weatherName.append("Current Weather: " + city + icon);
+    temp.text("Temperature: "+response.main.temp+" F");
+    hum.text("Humidity: "+response.main.humidity+"%");
+    windspeed.text("Windspeed: "+response.wind.speed+"m/s");
+    weatherName.text("Current Weather: " + currTime + " "+city);
     
    
 
