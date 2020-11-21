@@ -1,6 +1,6 @@
 var temp = $("#temp");
 // cities humidity
-var hum = $("#umidity");
+var hum = $("#humidity");
 var windspeed = $("#windspeed");
 var uvIndex = $("#uvIndex");
 var weatherName = $("#weatherName");
@@ -18,10 +18,11 @@ $.ajax({
     method: "GET"
 }).then(function(response) {
     temp.text("Temperature: "+response.main.temp+" F");
-    hum.text("Humidity: "+response.main.humidity);
-    console.log(hum);
-    
-});
+    hum.text("Humidity: "+response.main.humidity+"%");
+   
+
+
+
     var lat=response.coord.lat
     var lon=response.coord.lon
     var queryUvi= "http://api.openweathermap.org/data/2.5/uvi?appid=43f88cf4c22e52ae2848c5fb7e859150&lat="+lat+"&lon="+lon
@@ -40,6 +41,7 @@ var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=austin&appid=YO
     }).then(function(response){
 
     });
-};
+});
+}
 
 $("#searchButton").on("click", weatherCall);
