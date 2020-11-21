@@ -1,7 +1,7 @@
 var temp = $("#temp");
 // cities humidity
 var hum = $("#humidity");
-var windspeed = $("#windspeed");
+var windspeed = $("#windSpeed");
 var uvIndex = $("#uvIndex");
 var weatherName = $("#weatherName");
 
@@ -11,14 +11,19 @@ function weatherCall(event){
 
 var city = $("#searchTerm").val();
 var queryURL= "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial";
-var currentWeather ="currentWeather"
+
 // weather API
 $.ajax({
     url:queryURL,
     method: "GET"
 }).then(function(response) {
-    temp.text("Temperature: "+response.main.temp+" F");
-    hum.text("Humidity: "+response.main.humidity+"%");
+    var icon = (response.weather.icon);
+    console.log(icon);
+    temp.append("Temperature: "+response.main.temp+" F");
+    hum.append("Humidity: "+response.main.humidity+"%");
+    windspeed.append("Windspeed: "+response.wind.speed);
+    weatherName.append("Current Weather: " + city + icon);
+    
    
 
 
