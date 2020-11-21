@@ -41,14 +41,31 @@ $.ajax({
         url:queryUvi,
         method: "GET"
     }).then(function(response){
-        console.log(response)
+        uvIndex.text("Uvi: "+response.value);
+       
+        $("#uvIndex").attr("background-color","yellow");
+
+        if (uvIndex > 11) {
+            uvIndex.style.backgroundcolor = "purple";
+        } else if (currUVIndex > 8) {
+            uviSeverity = "red";
+        } else if (currUVIndex > 6) {
+            uviSeverity = "orange";
+            text_color = "black"
+        } else if (currUVIndex > 3) {
+            uviSeverity = "yellow";
+            text_color = "black"
+        }
+       
+    
     });
-var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=austin&appid=YOUR_API_KEY&units=imperial"
+var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
     // 5 day forcast 
     $.ajax({
         fiveDay,
         method: "GET"
     }).then(function(response){
+        console.log(fiveDay);
 
     });
 });
