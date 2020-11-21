@@ -41,8 +41,9 @@ $.ajax({
         url:queryUvi,
         method: "GET"
     }).then(function(response){
-        uvCurrent = (response.value);
+        var uvCurrent = (response.value);
         uvIndex.text("Uvi: "+ uvCurrent);
+        let uvSeverity = "green";
 
         uvIndex.attr(style="background-color","green");
 
