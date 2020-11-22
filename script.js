@@ -43,24 +43,28 @@ $.ajax({
     }).then(function(response){
         var uvCurrent = (response.value);
         uvIndex.text("Uvi: "+ uvCurrent);
-        let uvSeverity = "green";
+        
 
-        uvIndex.attr(style="background-color","green");
+        uvIndex.attr("style", "background-color: green");
 
-        if (uvCurrent >11) {
-            uvIndex.attr(style="background-color","purple");
-        } else if (uvCurrent > 8) {
-            uvIndex.attr(style="background-color","yellow");
-        } else if (uvCurrent > 6) {
+
+        if (uvCurrent >=11) {
+            uvIndex.attr("style", "background-color: purple");
+        } else if (uvCurrent >=8) {
+            uvIndex.attr("style", "background-color: yellow");
+
+        } else if (uvCurrent >=6) {
             uvIndex.attr(style="background-color","red");
             
-        } else if (uvCurrent > 0) {
+        } else if (uvCurrent >=3) {
             uvIndex.attr(style="background-color","blue");
          
         }
        console.log(uvCurrent)
     
     });
+
+
 var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
     // 5 day forcast 
     $.ajax({
