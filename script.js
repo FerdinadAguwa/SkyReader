@@ -13,3 +13,30 @@ for (var i = 0; i < localStorage.length; i++) {
 
     cityName.append("<li>" + city + "</li>");
 }
+// Key count for local storage curtousy of Fernando
+var keyCount = 0;
+// Search button click event
+searchButton.click(function () {
+
+    var searchInput = $(".searchInput").val();
+
+    // Variable for current weather working 
+    var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
+    // Variable for 5 day forecast working
+    var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
+
+
+    if (searchInput == "") {
+        console.log(searchInput);
+    } else {
+        $.ajax({
+            url: urlCurrent,
+            method: "GET"
+        }).then(function (response) {
+            // foreCastlist append an li to it with just set text
+            // console.log(response.name);
+            var cityName = $(".foreCastList").addClass("listGroupItem");
+            cityName.append("<li>" + response.name + "</li>");
+            // Local storage
+            var local = localStorage.setItem(keyCount, response.name);
+            keyCount = keyCount + 1;
