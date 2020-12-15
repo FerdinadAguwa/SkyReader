@@ -40,9 +40,13 @@ function weatherCall(event) {
             url: fiveDay,
             method: "GET"
         }).then(function (response) {
-            response.list;
+            for (let i = 0; i < 5; i++) {
+                
 
-            console.log(response.list)
+            } 
+        
+
+            console.log(response.list[0])
             
         });
     });
