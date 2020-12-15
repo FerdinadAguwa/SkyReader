@@ -37,7 +37,7 @@ $.ajax({
 var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
     // 5 day forcast 
     $.ajax({
-        fiveDay,
+        url:fiveDay,
         method: "GET"
     }).then(function(response){
     console.log (response)
