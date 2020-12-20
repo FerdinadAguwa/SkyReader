@@ -17,7 +17,7 @@ function weatherCall(event) {
         $("#tempTemp").text("Temperature: " + response.main.temp + " F");
         $("#humidity").text("Humidity: " + response.main.humidity);
 
-        console.log(response);
+        // console.log(response);
 
         var lat = response.coord.lat
         var lon = response.coord.lon
@@ -36,18 +36,18 @@ function weatherCall(event) {
 
         var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
         // 5 day forcast 
+
         $.ajax({
             url: fiveDay,
             method: "GET"
         }).then(function (response) {
-            var i;
-            for ( i = 0; i < 5; i++) {
-               response.list[0]
-               
-            } 
-        
 
-            console.log(response);
+            let i = response.list[i]
+            for ( i = 0; i < 5; i++) {
+            
+            
+            } 
+            
             
         });
     });
