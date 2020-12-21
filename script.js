@@ -42,11 +42,18 @@ function weatherCall(event) {
             method: "GET"
         }).then(function (response) {
 
-            let i = response.list[i]
+             
             for ( i = 0; i < 5; i++) {
+                let humidity = response.list[i * 8].main.humidity  
+                let temp = response.list[i * 8].main.temp
+                let wind = response.list[i*8].wind.speed    
+                console.log (humidity) 
+                
+               $("#five5").text("Humidity :"+ humidity)
+              }
             
             
-            } 
+          
             
             
         });
