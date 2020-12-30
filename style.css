@@ -2,18 +2,20 @@
 *::before,
 *::after{
     box-sizing: border-box;
+    
 }
 html {
     scroll-behavior: smooth;
+    
   }
 
 body{
-    height: 100%;
     background-image: url(images/edit-your-youtube-video-using-professional-background-music.jpeg);
     -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover; 
+height:100%
 }
     
 .weatherTitle{
@@ -47,4 +49,7 @@ background-color: white;
 }
 .weather{
     list-style: none;
+}
+.five{
+    color: whitesmoke;
 }

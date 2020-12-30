@@ -47,9 +47,16 @@ function weatherCall(event) {
                 let humidity = response.list[i * 8].main.humidity  
                 let temp = response.list[i * 8].main.temp
                 let wind = response.list[i*8].wind.speed    
-                console.log (humidity) 
+                console.log (humidity, temp, wind ) 
                 
-               $("#five5").text("Humidity :"+ humidity)
+               $(".day1").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+
+
+
+
+            //    var fiveDayForecast = $("<div>");
+            //    var p = $("<p>").text("Humidity: " + humidity);
+            //    fiveDayForecast.text(p);
               }
             
             
