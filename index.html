@@ -42,7 +42,7 @@
                 <h2 class=>Search for a City</h2>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2 sea" id="searchTerm" type="text" placeholder="Search for a City"
-                        aria-label="Search">
+                        aria-label="Search" onSubmit="return false;">
                     <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button"><i
                             class="fa fa-search" aria-hidden="true"></i>Search</button>
                 </form>
@@ -71,19 +71,50 @@
 
 
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br><br>
 
-    <div class="five">
-        <h1>FIVE DAY FORESCAST</h1>
-        <div class = "day1"></div>
-        <div class = "day1"></div>
-        <div class = "day1"></div>
-        <div class = "day1"></div>
-        <div class = "day1"></div>
+    <div class="container fiveTitle">
+
+    <h1>FIVE DAY FORESCAST</h1>
+<div class="five">
+<!-- day 1 -->
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Day 1</div>
+        <div class="card-body">
+          <p class="card-text day1"></p>
+        </div>
+      </div>
+      <!-- day2 -->
+      <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+        <div class="card-header">Day 2</div>
+        <div class="card-body">
+          <p class="card-text day2"></p>
+        </div>
+      </div>
+      <!-- Day3 -->
+      <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+        <div class="card-header">Day 3</div>
+        <div class="card-body">
+          <p class="card-text day3"></p>
+        </div>
+     </div>
+     <!-- day4 -->
+     <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header">Day 4</div>
+        <div class="card-body">
+          <p class="card-text day4"></p>
+        </div>
+     </div>
+<!-- day 5 -->
+     <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Day 5</div>
+        <div class="card-body">
+          <p class="card-text day4"></p>
+        </div>
+     </div>
     </div>
+  
+    
 <br>
 <br>
 <br>

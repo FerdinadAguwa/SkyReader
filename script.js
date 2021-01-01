@@ -43,15 +43,26 @@ function weatherCall(event) {
         }).then(function (response) {
 
              
-            for ( i = 0; i < 5; i++) {
-                let humidity = response.list[i * 8].main.humidity  
-                let temp = response.list[i * 8].main.temp
-                let wind = response.list[i*8].wind.speed    
+            for ( i = 0; i < 33; i+=8) {
+                let humidity = response.list[i].main.humidity  
+                let temp = response.list[i].main.temp
+                let wind = response.list[i].wind.speed    
                 console.log (humidity, temp, wind ) 
                 
-               $(".day1").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+            //    $(".day1").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                if (i===0){
+                    $(".day1").text("Humidity: "+ humidity+ "\n" + "\n Temperature: "+ temp + "\n Wind: "+wind)
+                } else if(i===8){
+                    $(".day2").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                }else if(i===16){
+                    $(".day3").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                }else if(i===24){
+                    $(".day4").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                }else if(i===32){
+                    $(".day5").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                }
 
-
+            
 
 
             //    var fiveDayForecast = $("<div>");

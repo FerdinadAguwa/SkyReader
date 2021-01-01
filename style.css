@@ -52,4 +52,12 @@ background-color: white;
 }
 .five{
     color: whitesmoke;
+    display: flex;
+    width: fit-content
+}
+.fiveTitle{
+    color: white;
+}
+.card{
+    text-align: center;
 }
