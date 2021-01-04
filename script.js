@@ -1,7 +1,56 @@
+
+$(document).ready(() => {
+    grabLocal()
+})
+
+function grabLocal() {
+    let array = JSON.parse(localStorage.getItem("city"));
+    for (let i = 0; i < array.length; i++){
+    $(".localCity").append(`<li> ${array[i]} <br />`)
+    console.log(array)
+    }
+
+}
+
+allcities = []
+
+
+
 function weatherCall(event) {
     event.preventDefault();
 
+    // allcities =[]
+    // function displayData() {
+    //     for( i = 0; i < allcities.length; i++) {
+    //     allcities.push(city);
+    //     localStorage.getItem(allcities)
+    //     console.log(localStorage)
+    //     }
+
+    //   }
+
+
+
+
+    $(".localCity").empty()
+    let localCity = document.querySelector(".localCity")
     var city = $("#searchTerm").val();
+    // set in local storage
+    allcities.push(city)
+    const saveToLocalStorage = function Local() {
+        localStorage.setItem('city', JSON.stringify(allcities))
+    }
+    $(".localCity").empty()
+   
+    let appendLocal = function getLocal() {
+        for (let i = 0; i < allcities.length; i++) {
+            //  let key = localStorage.key(i);
+
+            //  const value = localStorage.getItem(key);
+
+            localCity.innerHTML += `<li> ${allcities[i]} <br />`;
+        }
+    }
 
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial";
     // console.log(queryURL)
@@ -16,6 +65,11 @@ function weatherCall(event) {
         $("#windSpeed").text("WindSpeed: " + response.wind.speed + " mph");
         $("#tempTemp").text("Temperature: " + response.main.temp + " F");
         $("#humidity").text("Humidity: " + response.main.humidity);
+
+        // callining of my functions
+        saveToLocalStorage()
+        appendLocal()
+        // displayData()
 
         // console.log(response);
 
@@ -42,38 +96,38 @@ function weatherCall(event) {
             method: "GET"
         }).then(function (response) {
 
-             
-            for ( i = 0; i < 33; i+=8) {
-                let humidity = response.list[i].main.humidity  
+
+            for (i = 0; i < 33; i += 8) {
+                let humidity = response.list[i].main.humidity
                 let temp = response.list[i].main.temp
-                let wind = response.list[i].wind.speed    
-                console.log (humidity, temp, wind ) 
-                
-            //    $(".day1").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
-                if (i===0){
-                    $(".day1").text("Humidity: "+ humidity+ "\n" + "\n Temperature: "+ temp + "\n Wind: "+wind)
-                } else if(i===8){
-                    $(".day2").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
-                }else if(i===16){
-                    $(".day3").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
-                }else if(i===24){
-                    $(".day4").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
-                }else if(i===32){
-                    $(".day5").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                let wind = response.list[i].wind.speed
+                // console.log (humidity, temp, wind ) 
+
+                //    $(".day1").text("Humidity: "+ humidity+  "\n Temperature: "+ temp + "\n Wind: "+wind)
+                if (i === 0) {
+                    $(".day1").text("Humidity: " + humidity + "\n" + "\n Temperature: " + temp + "\n Wind: " + wind)
+                } else if (i === 8) {
+                    $(".day2").text("Humidity: " + humidity + "\n Temperature: " + temp + "\n Wind: " + wind)
+                } else if (i === 16) {
+                    $(".day3").text("Humidity: " + humidity + "\n Temperature: " + temp + "\n Wind: " + wind)
+                } else if (i === 24) {
+                    $(".day4").text("Humidity: " + humidity + "\n Temperature: " + temp + "\n Wind: " + wind)
+                } else if (i === 32) {
+                    $(".day5").text("Humidity: " + humidity + "\n Temperature: " + temp + "\n Wind: " + wind)
                 }
 
-            
 
 
-            //    var fiveDayForecast = $("<div>");
-            //    var p = $("<p>").text("Humidity: " + humidity);
-            //    fiveDayForecast.text(p);
-              }
-            
-            
-          
-            
-            
+
+                //    var fiveDayForecast = $("<div>");
+                //    var p = $("<p>").text("Humidity: " + humidity);
+                //    fiveDayForecast.text(p);
+            }
+
+
+
+
+
         });
     });
 }
