@@ -23,11 +23,11 @@ MIT
 ## Page Preview
 * Screenshots
 
-<img src= "images/Screen Shot 2020-11-21 at 9.10.47 PM.png"
+<img src= "images/Screen Shot 2021-01-03 at 8.39.33 PM.png"
 alt= "Header to the page "
 width=500px
 />
-<img src= "images/Screen Shot 2020-11-21 at 9.10.58 PM.png"
+<img src= "images/Screen Shot 2021-01-03 at 8.39.51 PM.png"
 alt= "Pictures with the weather sections"
 width= 500px
 />
