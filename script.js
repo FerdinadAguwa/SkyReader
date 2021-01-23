@@ -52,16 +52,19 @@ function weatherCall(event) {
         }
     }
 
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial";
     // console.log(queryURL)
     // weather API
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
+        
+        const image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
+console.log(image)
         $("#nameName").text(response.name);
-        $("#iconIcon").text(response.weather[0].icon);
+        $("#iconIcon").empty();
+        $("#iconIcon").append(image);
         $("#windSpeed").text("WindSpeed: " + response.wind.speed + " mph");
         $("#tempTemp").text("Temperature: " + response.main.temp + " F");
         $("#humidity").text("Humidity: " + response.main.humidity);
@@ -75,7 +78,7 @@ function weatherCall(event) {
 
         var lat = response.coord.lat
         var lon = response.coord.lon
-        var queryUvi = "http://api.openweathermap.org/data/2.5/uvi?appid=43f88cf4c22e52ae2848c5fb7e859150&lat=" + lat + "&lon=" + lon
+        var queryUvi = "https://api.openweathermap.org/data/2.5/uvi?appid=43f88cf4c22e52ae2848c5fb7e859150&lat=" + lat + "&lon=" + lon
         // UVI API => pass coordinates from weather API to UVI API
         // console.log(queryUvi)
         $.ajax({
@@ -88,7 +91,7 @@ function weatherCall(event) {
         });
 
 
-        var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
+        var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=43f88cf4c22e52ae2848c5fb7e859150&units=imperial"
         // 5 day forcast 
 
         $.ajax({
