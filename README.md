@@ -1,6 +1,6 @@
 # Ferdinad Aguwa - Weather Dashboard
 ## Description
-Vacations can be turned upside down if you take a trip and do not know the weather. With this weather dashboard you can start planning smart. All you have to do is put in a weather and the page will give you the temperature, humidity, wind speed, even the UV Index. The uv index is color coated allowing the user to see what is and is not harmful. I had an amazing time creating this happy planning. 
+Vacations can be turned upside down if you take a trip and do not know the weather. With the SkyReader weather dashboard you can start planning smart. All you have to do is put in a weather and the page will give you the temperature, humidity, wind speed, even the UV Index. The uv index is color coated allowing the user to see what is and is not harmful. I had an amazing time creating this happy planning. 
 
 ## Table of Contents
 * [License](#license)
